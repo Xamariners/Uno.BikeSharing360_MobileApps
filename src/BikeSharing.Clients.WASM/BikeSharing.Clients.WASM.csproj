@@ -6,68 +6,50 @@
 		<WasmHead>true</WasmHead>
 		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
 		<NoWarn>NU1701</NoWarn>
-    <MonoRuntimeDebuggerEnabled>true</MonoRuntimeDebuggerEnabled>
+    <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
+
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
-    <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
+    <!--<WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>-->
   </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
-		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
-		<PackageReference Include="Uno.UI" Version="1.46.230-dev.2725" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
-    <PackageReference Include="Uno.Xamarin.Forms.Platform" Version="4.1.0-uno.108" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.1.0-dev.319" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
-    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.CLI" Version="1.0.0-dev.300" />
+  <ItemGroup>
+    <LinkerDescriptor Include="LinkerConfig.xml" />
   </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Include="WasmCSS\**\*.css" />
-		<EmbeddedResource Include="WasmScripts\**\*.js" />
-
-		<UpToDateCheckInput Include="ts\**\*" />
-		<UpToDateCheckInput Include="WasmCSS\**\*" />
-		<UpToDateCheckInput Include="WasmScripts\**\*" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="tsconfig.json" />
-	  <None Remove="wwwroot\web.config" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="tsconfig.json" />
-	  <Content Include="wwwroot\web.config" />
-	</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WasmCSS\**\*.css" />
+    <EmbeddedResource Include="WasmScripts\**\*.js" />
+    <UpToDateCheckInput Include="WasmCSS\**\*" />
+    <UpToDateCheckInput Include="WasmScripts\**\*" />
+  </ItemGroup>
 
   <ItemGroup>
-		<LinkerDescriptor Include="LinkerConfig.xml" />
-	</ItemGroup>
+    <None Remove="Fonts\winjs-symbols.woff2" />
+  </ItemGroup>
 
-	<ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\winjs-symbols.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+		<PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
+		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
+    <PackageReference Include="Uno.UI" Version="2.4.9" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.2.0" />
+    <PackageReference Include="Uno.Xamarin.Forms.Platform" Version="4.5.0-uno.569" />
+    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <ProjectReference Include="..\BikeSharing.Clients.Core\BikeSharing.Clients.Core.csproj" />
 	</ItemGroup>
-
-	<Import Project="..\BikeSharing.Client.Shared\BikeSharing.Client.Shared.projitems" Label="Shared" />
-
-	<Target Name="fixupGeneratedJavascript" BeforeTargets="GetTypeScriptOutputForPublishing">
-		<!-- Workaround for Uno.Wasm.Bootstrap picking up files produced by GetTypeScriptOutputForPublishing -->
-		<ItemGroup>
-			<_removedGenerated Include="@(GeneratedJavascript)" />
-			<GeneratedJavascript Remove="@(_removedGenerated)" />
-		</ItemGroup>
-	</Target>
-
-  <Target Name="RemoveOriginalUAPRenderer" BeforeTargets="CoreCompile">
-    <ItemGroup>
-      <_OriginalRefs Include="@(ReferencePathWithRefAssemblies)" Condition="'%(FileName)'=='Xamarin.Forms.Platform.UAP' or '%(FileName)'=='Xamarin.Forms.Platform.iOS' or '%(FileName)'=='Xamarin.Forms.Platform.Android' " />
-      <ReferencePathWithRefAssemblies Remove="@(_OriginalRefs)" />
-    </ItemGroup>
-  </Target>
-
-
+ 
+  <Import Project="..\BikeSharing.Client.Shared\BikeSharing.Client.Shared.projitems" Label="Shared" />
+ 
 </Project>

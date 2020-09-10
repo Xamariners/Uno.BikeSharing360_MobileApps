@@ -13,6 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BikeSharing.Clients.WASM", 
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\BikeSharing.Client.Shared\BikeSharing.Client.Shared.projitems*{2e988faa-83f4-4fb2-804b-270cc9db5967}*SharedItemsImports = 5
 		src\BikeSharing.Client.Shared\BikeSharing.Client.Shared.projitems*{31f3b999-b5ab-421b-92ee-299ac747c276}*SharedItemsImports = 13
 		src\BikeSharing.Client.Shared\BikeSharing.Client.Shared.projitems*{90af39cc-2364-47df-b798-a512bf6842d8}*SharedItemsImports = 4
 	EndGlobalSection

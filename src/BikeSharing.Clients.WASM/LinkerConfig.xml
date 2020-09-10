@@ -1,15 +1,14 @@
 ﻿<linker>
-	<assembly fullname="Uno.UI" />
-	<assembly fullname="Xamarin.Forms.Core" />
-	<assembly fullname="Xamarin.Forms.Platform.UAP" />
-	<assembly fullname="Xamarin.Forms.Xaml" />
-	<assembly fullname="BikeSharing.Clients.Core" />
-	<assembly fullname="BikeSharing.Clients.WASM" />
-	<assembly fullname="Microsoft.Practices.Unity" />
-  <assembly fullname="System" />
-  <assembly fullname="System.Linq" />
-  <assembly fullname="mscorlib" />
-  <assembly fullname="System.ComponentModel" />
-  <assembly fullname="Microsoft.Practices.Unity" />
-  <assembly fullname="System.Core"/>
+    <assembly fullname="Uno.UI" />
+    <assembly fullname="Xamarin.Forms.Core" />
+    <assembly fullname="Xamarin.Forms.Xaml" />
+    <assembly fullname="BikeSharing.Clients.Core" />
+    <assembly fullname="BikeSharing.Clients.WASM" />
+    <assembly fullname="Unity.Container" />
+    <assembly fullname="Unity.Abstractions" />
+    <assembly fullname="System" />
+    <assembly fullname="System.Linq" />
+    <assembly fullname="mscorlib" />
+    <assembly fullname="System.ComponentModel" />
+    <assembly fullname="System.Core"/>
 </linker>

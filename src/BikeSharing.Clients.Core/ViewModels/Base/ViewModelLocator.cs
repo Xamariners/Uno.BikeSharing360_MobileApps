@@ -1,12 +1,14 @@
-﻿using BikeSharing.Clients.Core.DataServices;
+﻿using System;
+using BikeSharing.Clients.Core.DataServices;
 using BikeSharing.Clients.Core.DataServices.Base;
 using BikeSharing.Clients.Core.DataServices.Fake;
 using BikeSharing.Clients.Core.DataServices.Interfaces;
 using BikeSharing.Clients.Core.Services;
 using BikeSharing.Clients.Core.Services.Interfaces;
 using BikeSharing.Clients.Core.ViewModels.SignUp;
-using Microsoft.Practices.Unity;
-using System;
+using Unity;
+using Unity.Lifetime;
+
 
 namespace BikeSharing.Clients.Core.ViewModels.Base
 {

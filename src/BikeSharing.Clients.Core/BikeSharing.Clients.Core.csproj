@@ -6,14 +6,14 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 	
-	<ItemGroup>
+  <ItemGroup>
 		<PackageReference Include="MSBuild.Sdk.Extras" Version="1.3.1" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-		<PackageReference Include="Unity" Version="4.0.1" />
-		<PackageReference Include="Xamarin.Forms" Version="4.1.0.709244" />
+		<PackageReference Include="Unity" Version="5.11.7" />
+		<PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
 	</ItemGroup>
 
 	<ItemGroup>
